@@ -406,3 +406,40 @@
 // }
 
 // insertionSort([2,1,9,76,4])
+
+
+
+
+
+//? MERGESORT
+// first you need to be able to merge two sorted arrays, since 
+// mergesort is breaking them down to arrays of length 1 then merging them together
+//? first we have the merge helper function that is going to merge two sorted arrays
+
+const mergeArrays = (arr1, arr2) => {
+    let result = []
+    let i = 0
+    let j = 0
+    // while i and j are both less than the length of their respective arrays
+    while(i < arr1.length && j < arr2.length) {
+        // we are checking one value against the other and pushing the lower one into the result array
+        if(arr2[j] > arr1[i]) {
+            result.push(arr1[i])
+            i++
+        } else {
+            result.push(arr2[j])
+            j++
+        }
+    }
+    // this is meant to catch any of the extra numbers if one array was longer than another
+    while(i < arr1.length){
+        result.push(arr1[i])
+        i++
+    }
+    while(j < arr2.length){
+        result.push(arr2[j])
+        j++
+    }
+    return result
+}
+console.log(mergeArrays([100,200], [1,2,3,5,6]))
