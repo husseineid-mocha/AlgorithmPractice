@@ -416,30 +416,199 @@
 // mergesort is breaking them down to arrays of length 1 then merging them together
 //? first we have the merge helper function that is going to merge two sorted arrays
 
-const mergeArrays = (arr1, arr2) => {
-    let result = []
-    let i = 0
-    let j = 0
-    // while i and j are both less than the length of their respective arrays
-    while(i < arr1.length && j < arr2.length) {
-        // we are checking one value against the other and pushing the lower one into the result array
-        if(arr2[j] > arr1[i]) {
-            result.push(arr1[i])
-            i++
-        } else {
-            result.push(arr2[j])
-            j++
-        }
-    }
-    // this is meant to catch any of the extra numbers if one array was longer than another
-    while(i < arr1.length){
-        result.push(arr1[i])
-        i++
-    }
-    while(j < arr2.length){
-        result.push(arr2[j])
-        j++
-    }
-    return result
+// const mergeArrays = (arr1, arr2) => {
+//     let result = []
+//     let i = 0
+//     let j = 0
+//     // while i and j are both less than the length of their respective arrays
+//     while(i < arr1.length && j < arr2.length) {
+//         // we are checking one value against the other and pushing the lower one into the result array
+//         if(arr2[j] > arr1[i]) {
+//             result.push(arr1[i])
+//             i++
+//         } else {
+//             result.push(arr2[j])
+//             j++
+//         }
+//     }
+//     // this is meant to catch any of the extra numbers if one array was longer than another
+//     while(i < arr1.length){
+//         result.push(arr1[i])
+//         i++
+//     }
+//     while(j < arr2.length){
+//         result.push(arr2[j])
+//         j++
+//     }
+//     return result
+// }
+// // console.log(mergeArrays([100,200], [1,2,3,5,6]))
+
+// const mergeSort = (array) => {
+//     if(array.length <= 1) return array
+//     let mid = Math.floor(array.length / 2)
+//     let right = mergeSort(array.slice(mid))
+//     let left = mergeSort(array.slice(0, mid))
+//     return mergeArrays(right, left)
+// }
+// console.log(mergeSort([100,200,1,2,3,5,6]))
+
+// //! ABOVE IS ALL OF MERGESORT WITH THE HELPER FUNCTION
+
+//mergesort again
+// mergesort sorts by breaking down an array into two parts, when we get an array of length 1 or 0 then 
+// we order those into a sorted array
+// // mergesort uses a helper function to help it merge the arrays together, lets do that first
+// const mergeArrays = (arr1, arr2) => {
+//     //need the array that's gonna hold the sorted values
+//     let results = []
+//     //indices for both arrays that start at 0 so we can compare
+//     let i = 0
+//     let j = 0
+//     // going to loop while the indices are smaller than the length of the arrays
+//     while (i < arr1.length && j < arr2.length) {
+//         if (arr1[i] < arr2[j]){
+//             results.push(arr1[i])
+//             i++
+//         } else {
+//             results.push(arr2[j])
+//             j++
+//         }
+//     }
+//     // if we are done with the arrays at the same length and there is some layover we need to take that into account
+//     while (i < arr1.length) {
+//         results.push(arr1[i])
+//         i++
+//     }
+//     //same thing for j and arr2
+//     while (j < arr2.length) {
+//         results.push(arr2[j])
+//         j++
+//     }
+//     return results
+// }
+// // console.log(mergeArrays([100,200], [1,2,3,5,6]))
+// // the actual mergesort is recursive, we are going to call this function on the right and left sides 
+// // of a longer array in order to sort them
+// const mergeSort = arr => {
+//     if (arr.length <= 1) return arr
+//     //need a midpoint to split the array
+//     let mid = Math.floor(arr.length / 2)
+//     let right = mergeSort(arr.slice(mid))
+//     let left = mergeSort(arr.slice(0, mid))
+//     return mergeArrays(right, left)
+// }
+
+// console.log(mergeSort([100,200,1,2,3,5,6]))
+
+
+//? QUICKSORT
+/*
+procedure quickSort(left, right)
+
+  if the length of the array is 0 or 1, return the array
+
+  set the pivot to the first element of the array
+  remove the first element of the array
+
+  put all values less than the pivot value into an array called left
+  put all values greater than the pivot value into an array called right
+
+  call quick sort on left and assign the return value to leftSorted
+  call quick sort on right and assign the return value to rightSorted
+
+  return the concatenation of leftSorted, the pivot value, and rightSorted
+
+end procedure
+// */
+// function quickSort(array) {
+//     if (array.length <= 1) {
+//         return array;
+//     }
+
+//     let pivot = array.shift();
+//     let left = array.filter(el => el < pivot);
+//     let right = array.filter(el => el >= pivot);
+
+//     let leftSorted = quickSort(left);
+//     let rightSorted = quickSort(right);
+
+//     return leftSorted.concat([pivot]).concat(rightSorted);
+// }
+
+// function quickSort(array) {
+//     if (array.length <= 1) {
+//         return array;
+//     }
+
+//     let pivot = array.shift();
+//     let left = array.filter(el => el < pivot);
+//     let right = array.filter(el => el >= pivot);
+
+//     let leftSorted = quickSort(left);
+//     let rightSorted = quickSort(right);
+
+//     return [ ...leftSorted, pivot, ...rightSorted ];
+// }
+
+// // a partition algorithm used above
+// function partition(array, pivot) {
+//     let left = array.filter(el => el < pivot);
+//     let right = array.filter(el => el >= pivot);
+//     return [ left, right ];
+// }
+
+
+// mergeSort, first we need a way to merge two arrays
+
+// const mergeArrays = (arr1, arr2) => {
+//     let results = []
+//     let i = 0
+//     let j = 0
+//     while(i < arr1.length && j < arr2.length) {
+//         if(arr1[i] < arr2[j]){
+//             results.push(arr1[i])
+//             i++
+//         }else{
+//             results.push(arr2[j])
+//             j++
+//         }
+//     }
+//     while(i < arr1.length){
+//         results.push(arr1[i])
+//         i++
+//     }
+//     while(j < arr2.length){
+//         results.push(arr2[j])
+//         j++
+//     }
+//     return results
+// }
+
+// const mergeSort = arr => {
+//     if (arr.length <= 1) return arr
+//     let mid = Math.floor(arr.length / 2)
+//     let right = mergeSort(arr.slice(mid))
+//     let left = mergeSort(arr.slice(0, mid))
+//     return mergeArrays(left, right)
+// }
+
+// console.log(mergeSort([100,200,1,2,3,5,6]))
+// // 
+
+// quicksort uses a pivot instead of using two arrays that are merged together
+
+const quickSort = (arr) => {
+    if (arr.length <= 1) return arr
+
+    let pivot = arr.shift()
+    let left = arr.filter(el => el < pivot)
+    let right = arr.filter(el => el >= pivot)
+
+    let sortedLeft = quickSort(left)
+    let sortedRight = quickSort(right)
+
+    return [...sortedLeft, pivot, ...sortedRight]
 }
-console.log(mergeArrays([100,200], [1,2,3,5,6]))
+
+console.log(quickSort([100,200,1,2,3,5,6]))
