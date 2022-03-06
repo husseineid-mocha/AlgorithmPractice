@@ -669,3 +669,5 @@ const quickSort = arr => {
 
     return [...sortedLeft, pivot, ...sortedRight]
 }
+
+console.log('hello')

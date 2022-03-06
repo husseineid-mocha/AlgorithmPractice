@@ -51,3 +51,7 @@
 
 
 // node is a container for some data
+// the first node is the head
+// the last node is the tail
+// if the tail.next is null, that's how you know it's the tail
+// an array is stored contiguously is memory, while a linked list is not
