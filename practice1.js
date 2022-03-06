@@ -598,17 +598,74 @@ end procedure
 
 // quicksort uses a pivot instead of using two arrays that are merged together
 
-const quickSort = (arr) => {
+// const quickSort = (arr) => {
+//     if (arr.length <= 1) return arr
+
+//     let pivot = arr.shift()
+//     let left = arr.filter(el => el < pivot)
+//     let right = arr.filter(el => el >= pivot)
+
+//     let sortedLeft = quickSort(left)
+//     let sortedRight = quickSort(right)
+
+//     return [...sortedLeft, pivot, ...sortedRight]
+// }
+
+// console.log(quickSort([100,200,1,2,3,5,6]))
+
+
+
+//mergeSort
+// first you need to be able to merge two sorted arrays
+// const mergeArrays = (arr1, arr2) => {
+//     let results = []
+//     let i = 0
+//     let j = 0
+
+//     while (i < arr1.length && j < arr2.length){
+//         if (arr1[i] < arr2[j]) {
+//             results.push(arr1[i])
+//             i++
+//         } else {
+//             results.push(arr2[j])
+//             j++
+//         }
+//     }
+//     while (i < arr1.length) {
+//         results.push(arr1[i])
+//         i++
+//     }
+//     while (j < arr2.length) {
+//         results.push(arr2[j])
+//         j++
+//     }
+//     return results
+// }
+
+// // console.log(mergeArrays([100,200], [1,2,3,5,6]))
+
+// const mergeSort = (arr) => {
+//     if(arr.length <= 1) return arr
+//     let mid = Math.floor(arr.length / 2)
+//     let right = mergeSort(arr.slice(mid))
+//     let left = mergeSort(arr.slice(0, mid))
+//     return mergeArrays(left, right)
+// }
+
+// console.log(mergeSort([100,200,1,2,3,5,6]))
+
+
+//quicksort
+//need a pivot
+const quickSort = arr => {
     if (arr.length <= 1) return arr
 
     let pivot = arr.shift()
-    let left = arr.filter(el => el < pivot)
-    let right = arr.filter(el => el >= pivot)
+    let left = arr.filter(ele => ele < pivot)
+    let right = arr.filter(ele => ele >= pivot)
 
     let sortedLeft = quickSort(left)
     let sortedRight = quickSort(right)
 
     return [...sortedLeft, pivot, ...sortedRight]
 }
-
-console.log(quickSort([100,200,1,2,3,5,6]))
