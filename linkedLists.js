@@ -145,3 +145,45 @@ const linkedListFind = (head, target) => {
 };
 
 */
+
+/* 
+Write a function, getNodeValue, that takes in the head of a linked list and an index. The function should return the value of the linked list at the specified index.
+
+If there is no node at the given index, then return null.
+
+const getNodeValue = (head, index) => {
+  let count = 0
+  let current = head;
+  while (current !== null) {
+    if (index === count) return current.val
+    count++
+    current = current.next
+  }
+  return null
+};
+
+
+*/
+
+/* 
+Write a function, reverseList, that takes in the head of a linked list as an argument. The function should reverse the order of the nodes in the linked list in-place and return the new head of the reversed linked list.
+
+const reverseList = (head) => {
+  let current = head;
+  let previous = null;
+  while (current !== null) {
+    let next = current.next
+    current.next = previous
+    previous = current
+    current = next
+  }
+  return previous
+
+};
+
+FOR THIS PROBLEM WE NEED TO HAVE A PREVIOUS SO WE CAN POINT THE CURRENT TO THE PREVIOUS
+WE ALSO NEED TO HAVE A NEXT BECAUSE WHEN WE MAKE CURRENT.NEXT = PREVIOUS WE ARE SEVERING THE TIE WITH THE NEXT NODE
+AND WE NEED THAT TO BE KEPT SOMEWHERE
+
+
+*/
