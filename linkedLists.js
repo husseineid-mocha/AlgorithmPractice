@@ -55,3 +55,36 @@
 // the last node is the tail
 // if the tail.next is null, that's how you know it's the tail
 // an array is stored contiguously is memory, while a linked list is not
+// if you want to insert something into the middle of an array you need to shift everything over
+//               this can cost o(n) space
+// in a linkedlist you dont need to shift everything over, you just need to adjust the pointers
+
+
+class Node {
+    constructor(val) {
+        this.val = val;
+        this.next = null;
+    }
+}
+
+const a = new Node('A')
+const b = new Node('B')
+const c = new Node('C')
+const d = new Node('D')
+
+a.next = b;
+b.next = c;
+c.next = d;
+
+///     A => B => C => D => null
+
+
+const printLinkedList = head => {
+    let current = head;
+    while (current !== null) {
+        console.log(current.val)
+        current = current.next
+    }
+}
+
+console.log(printLinkedList(a))
