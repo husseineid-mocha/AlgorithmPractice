@@ -6,29 +6,48 @@
 - no indices
 */
 
-class Node{
-    constructor(val){
-        this.val = val;
-        this.next = null;
-    }
-}
+// class Node{
+//     constructor(val){
+//         this.val = val;
+//         this.next = null;
+//     }
+// }
 
-class SinglyLinkedList{
-    constructor(){
-        this.head = null;
-        this.tail = null;
-        this.length = 0;
-    }
-    push(val){
-        let newNode = new Node(val)
-        if(!this.head){
-            this.head = newNode
-            this.tail = this.head
-        } else {
-            this.tail.next = newNode
-            this.tail = newNode
-        }
-        this.length++
-        return this
-    }
-}
+// class SinglyLinkedList{
+//     constructor(){
+//         this.head = null;
+//         this.tail = null;
+//         this.length = 0;
+//     }
+//     push(val){
+//         let node = new Node(val)
+//         if(!this.head){
+//             this.head = node
+//             this.tail = this.head
+//         } else {
+//             this.tail.next = newNode
+//             this.tail = newNode
+//         }
+//         this.length++
+//         return this
+//     }
+//     pop(){
+//         if (!this.head) return undefined
+//         let current = this.head
+//         while(current.next){
+//             if (current.next.next === null){
+//                 current.next = null
+//             }
+//             current = current.next
+//         }
+//         this.length--
+//     }
+// }
+
+
+
+
+
+
+
+// node is a container for some data
