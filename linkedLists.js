@@ -79,12 +79,56 @@ c.next = d;
 ///     A => B => C => D => null
 
 
-const printLinkedList = head => {
-    let current = head;
-    while (current !== null) {
-        console.log(current.val)
-        current = current.next
-    }
-}
+// const printLinkedList = head => {
+//     let current = head;
+//     while (current !== null) {
+//         console.log(current.val)
+//         current = current.next
+//     }
+// }
 
-console.log(printLinkedList(a))
+//recursively
+// const printLinkedList = head => {
+//     if (head === null) return
+//     console.log(head.val);
+//     printLinkedList(head.next);
+// }
+
+// console.log(printLinkedList(a))
+
+//
+//Write a function, linkedListValues, that takes in the head of a linked list as an argument. The function should return an array containing all values of the nodes in the linked list.
+
+// class Node {
+//   constructor(val) {
+//     this.val = val;
+//     this.next = null;
+//   }
+// }
+
+// const linkedListValues = (head) => {
+//     let result = []
+//     let current = head;
+//     while (current !== null) {
+//       result.push(current.val)
+//       current = current.next
+//     }
+//     return result
+//   };
+  
+
+/* 
+Write a function, sumList, that takes in the head of a linked list containing numbers as an argument. The function should return the total sum of all values in the linked list.
+
+const sumList = (head) => {
+  let sum = 0;
+  let current = head;
+  while (current !== null) {
+    sum += current.val
+    current = current.next
+  }
+  return sum
+};
+
+*/
+
