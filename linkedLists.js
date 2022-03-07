@@ -262,3 +262,96 @@ const mergeLists = (head1, head2) => {
 };
 
 */
+
+
+/*
+Write a function, isUnivalueList, that takes in the head of a linked list as an argument. The function should return a boolean indicating whether or not the linked list contains exactly one unique value.
+
+You may assume that the input list is non-empty.
+
+const isUnivalueList = (head) => {
+  let current = head;
+  
+  while (current !== null) {
+  if (current.val !== head.val) return false
+    current = current.next
+  }
+  return true
+};
+
+
+*/
+
+
+//! REMOVE NODE
+/*
+const removeNode = (head, targetVal) => {
+  if (head.val === targetVal) return head.next
+  
+  let current = head;
+  let previous = null;
+  
+  while (current !== null) {
+    if (current.val === targetVal) {
+      previous.next = current.next
+      break // we only want the first time it happens
+    }
+    previous = current
+    current = current.next
+  }
+  
+  return head
+};
+*/
+
+//! INSERT NODE
+/*
+class Node {
+  constructor(val) {
+    this.val = val;
+    this.next = null;
+  }
+}
+
+const insertNode = (head, value, index) => {
+  let newNode = new Node(value)
+  
+  let count = 0
+  let current = head
+  
+  if (index === 0) {
+    newNode.next = head
+    return newNode
+  }
+  
+  while(current !== null) {
+    let next = current.next
+    if (count === index - 1) {
+      current.next = newNode
+      newNode.next = next
+    }
+    current = current.next
+    count++
+  }
+  
+  return head
+};
+
+*/
+
+
+//! create linked list from array of values
+/*
+const createLinkedList = (values) => {
+  let dummyHead = new Node(null)
+  let tail = dummyHead
+  
+  for (let ele of values) {
+    tail.next = new Node(ele)
+    tail = tail.next
+  }
+  
+  return dummyHead.next
+};
+
+*/
