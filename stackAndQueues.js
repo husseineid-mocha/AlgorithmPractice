@@ -89,3 +89,48 @@ class Stack {
 /* this is not similar to the push and pop for linked list in that the pop has linear time
 since it removes from the end of the list, has to iterate through it, this pop is dealing with the first item, 
 it's constant time */
+
+//? Insertion and removal are both O(1) time
+
+
+//! Queue
+// queue is a FIFO, first in first out
+
+class Node {
+    constructor(value) {
+        this.value = value;
+        this.next = null
+    }
+}
+
+class Queue {
+    constructor() {
+        this.first = null
+        this.last = null
+        this.size = 0
+    }
+
+    enqueue(value) {
+        let node = new Node(value)
+        if (!this.head) {
+            this.first = node
+            this.last = node
+        } else {
+            this.last.next = newNode
+            this.last = newNode
+        }
+        return ++this.size;
+    }
+
+    dequeue() {
+        if (!this.head) return null
+        if (this.size === 1) {
+            this.first = null
+            this.last = null
+        }
+        let temp = this.first
+        this.first = this.first.next
+        this.size--
+        return temp.value
+    }
+}
